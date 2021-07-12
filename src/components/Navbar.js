@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
 
 const Navbar = () => {
+  const [dropdown, setDropdown] = useState(false);
   return (
     <nav className="navbar">
-      <ul>
+      <div
+        className={`burger ${dropdown ? "open" : ""}`}
+        onClick={() => {
+          setDropdown(!dropdown);
+        }}
+      >
+        <div className="line1" />
+        <div className="line2" />
+        <div className="line3" />
+      </div>
+      <ul className={dropdown ? "link-open" : ""}>
         <li>
           <Link to="/">HOME</Link>
         </li>
@@ -15,7 +26,9 @@ const Navbar = () => {
         <li>
           <Link to="/pre-construction">PRE-CONSTRUCTION</Link>
         </li>
-        <img src={Logo} alt="logo" />
+        <Link to="/">
+          <img src={Logo} alt="logo" />
+        </Link>
         <li>
           <Link to="/resources">RESOURCES</Link>
         </li>

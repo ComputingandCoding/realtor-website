@@ -46,22 +46,25 @@ p {
 
 .video-player {
   position: absolute;
-  height: 100vh;
-  min-width: 100vw;
+  max-height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   top: 0;
   z-index: -1;
 }
 
 .video-player video {
-  height: 100vh;
-  min-width: 100vw;
+  width: 100%;
+  max-height: 100vh;
+  min-height: 100vh;
   object-fit: cover;
   z-index: -1;
 }
 
 .overlay {
   position: absolute;
-  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
   min-width: 100%;
   top: 0;
   background-color: rgba(0, 0, 0, 0.34);
@@ -73,7 +76,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 90vh;
   padding-top: 10rem;
 }
 
@@ -81,7 +83,7 @@ p {
   height: 2px;
   border-radius: 999px;
   background: #fff;
-  width: 30vw;
+  width: 20vw;
   margin: 2rem 0;
   display: flex;
   align-items: center;
@@ -104,6 +106,8 @@ p {
 .about {
   display: flex;
   justify-content: center;
+  min-height: 90vh;
+  margin-top: 50vh;
 }
 
 .about > div {
@@ -114,7 +118,8 @@ p {
 }
 
 .about p {
-  width: 50vw;
+  min-width: 400px;
+  max-width: 500px;
   margin-top: 1rem;
 }
 
@@ -122,15 +127,94 @@ p {
   margin-left: 2rem;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .about > div {
     flex-wrap: wrap;
     text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .about p {
     font-size: 1rem;
+    min-width: 300px;
+    max-width: 500px;
+  }
+
+  .about h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-text {
+    margin-left: 0;
+    margin-top: 1rem;
   }
 }
 
 /*330771*/
+
+.burger div {
+  height: 3px;
+  width: 50px;
+  background-color: #fff;
+  z-index: 999;
+  margin: 0.8rem;
+  transition: all 0.5s linear;
+}
+
+.burger {
+  position: absolute;
+  display: none;
+  margin-top: 2rem;
+}
+
+.open .line3 {
+  opacity: 0;
+}
+.open .line1 {
+  transform: rotateZ(45deg);
+  position: absolute;
+  background: #000;
+}
+.open .line2 {
+  transform: rotateZ(-45deg);
+  position: absolute;
+  background: #000;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: space-around;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    z-index: 999;
+    background-color: #fff;
+    width: 100%;
+    transition: all 0.5s ease;
+  }
+
+  .navbar li {
+    margin: 1rem 0;
+  }
+
+  .navbar a {
+    color: #000;
+  }
+
+  .burger {
+    display: block;
+    z-index: 9999;
+  }
+}
+
+.link-open {
+  transform: translate(-50%, 0%) !important;
+}
+
+@media screen and (min-width: 850px) {
+  .link-open {
+    transform: translate(0%, 0%) !important;
+  }
+}
