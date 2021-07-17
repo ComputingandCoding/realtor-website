@@ -5,6 +5,23 @@
   box-sizing: border-box;
 }
 
+.reviews::-webkit-scrollbar {
+  width: 0px;
+}
+.reviews::-o-scrollbar {
+  width: 0px;
+}
+.reviews::-moz-scrollbar {
+  width: 0px;
+}
+.reviews::-ms-scrollbar {
+  width: 0px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 h1 {
   font-family: "Montserrat", sans-serif;
 }
@@ -53,7 +70,8 @@ p {
   z-index: -1;
 }
 
-.video-player video {
+.video-player video,
+.video-player img {
   width: 100%;
   max-height: 100vh;
   min-height: 100vh;
@@ -107,20 +125,59 @@ p {
   display: flex;
   justify-content: center;
   min-height: 90vh;
-  margin-top: 50vh;
+  margin-top: 40vh;
+  padding: 2rem;
 }
 
 .about > div {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   width: 60vw;
   align-items: center;
 }
 
+.about img {
+  min-width: 431px;
+  height: auto;
+}
+
 .about p {
-  min-width: 400px;
+  min-width: 450px;
   max-width: 500px;
   margin-top: 1rem;
+}
+
+.about button {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 0px;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.about a {
+  text-decoration: none;
+}
+
+.about button:after {
+  content: "➝";
+  position: relative;
+  right: 110%;
+  transition: all 0.5s ease;
+  font-size: 1.5rem;
+  opacity: 0;
+}
+
+.about button:hover:after {
+  right: 0;
+  margin-left: 0.8rem;
+  opacity: 1;
 }
 
 .about-text {
@@ -128,17 +185,27 @@ p {
 }
 
 @media screen and (max-width: 800px) {
-  .about > div {
-    flex-wrap: wrap;
+  .main {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    justify-content: center;
+  }
+
+  .btn-txt {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
+  .about img {
+    min-width: 401px;
+    height: auto;
+  }
+
   .about p {
-    font-size: 1rem;
+    font-size: 0.7rem;
     min-width: 300px;
-    max-width: 500px;
+    max-width: 300px;
   }
 
   .about h1 {
@@ -149,9 +216,12 @@ p {
     margin-left: 0;
     margin-top: 1rem;
   }
-}
 
-/*330771*/
+  .about button:after {
+    content: "";
+    position: static;
+  }
+}
 
 .burger div {
   height: 3px;
@@ -166,6 +236,7 @@ p {
   position: absolute;
   display: none;
   margin-top: 2rem;
+  cursor: pointer;
 }
 
 .open .line3 {
@@ -207,6 +278,10 @@ p {
     display: block;
     z-index: 9999;
   }
+
+  .about {
+    padding-top: 9rem;
+  }
 }
 
 .link-open {
@@ -216,5 +291,260 @@ p {
 @media screen and (min-width: 850px) {
   .link-open {
     transform: translate(0%, 0%) !important;
+  }
+}
+
+.intro {
+  background-color: #975be6;
+  position: fixed;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  top: 0;
+  animation: intro 0.8s ease-out forwards;
+  transform: translateX(-100%);
+}
+
+.intro img {
+  height: 200px;
+  width: auto;
+}
+
+@keyframes intro {
+  0% {
+    transform: translateX(0%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.about .main {
+  display: flex;
+}
+
+.awards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #efefef;
+}
+
+.awards p {
+  min-width: 600px;
+  max-width: 600px;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.awards ul {
+  display: grid;
+  grid-template-columns: auto auto;
+  max-width: 600px;
+  min-width: 600px;
+  justify-items: center;
+}
+
+.awards li {
+  margin: 1rem 0;
+  list-style: none;
+}
+
+.awards i {
+  margin-right: 0.5rem;
+  color: #330771;
+}
+
+footer img {
+  height: 100px;
+  width: auto;
+}
+
+footer {
+  background-color: #111111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contact-info {
+  display: flex;
+}
+
+.contact-info div {
+  margin: 0 1rem;
+}
+
+.contact-info div i {
+  margin-right: 0.5rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.social {
+  font-size: 2rem;
+}
+
+.social a {
+  margin: 0 1rem;
+}
+
+.bottom {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.bottom ul {
+  display: flex;
+  list-style: none;
+}
+
+.bottom li {
+  margin: 1rem;
+}
+
+@media screen and (max-width: 975px) {
+  footer,
+  .awards {
+    font-size: 60%;
+  }
+
+  .awards ul {
+    max-width: 300px;
+    min-width: 300px;
+  }
+
+  .awards ul li {
+    margin-right: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .awards p {
+    font-size: 0.4rem;
+  }
+
+  .top {
+    flex-wrap: wrap;
+  }
+
+  footer img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 1rem;
+  }
+
+  .social i {
+    font-size: 1rem;
+  }
+
+  .contact-info div {
+    white-space: nowrap;
+  }
+
+  footer li {
+    white-space: nowrap;
+  }
+}
+
+.testimonials {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.reviews {
+  display: flex;
+  overflow: scroll;
+  width: 100vw;
+  -moz-scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+  -o-scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  margin-top: 1rem;
+}
+
+.review {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 0.05rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.review i {
+  color: #330771;
+}
+
+.review p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.review h1 {
+  font-size: 1.5rem;
+}
+
+.controls i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  text-shadow: 0 0.05rem 0.5rem rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.left {
+  left: 1rem;
+}
+
+.right {
+  right: 1rem;
+}
+
+@media screen and (max-width: 850px) {
+  .review p {
+    font-size: 0.6rem;
+  }
+
+  .review h1 {
+    font-size: 1rem;
+  }
+
+  .review {
+    min-width: 200px;
+    max-width: 200px;
   }
 }
